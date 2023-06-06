@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  version: '1.0.1'
+  version: '1.0.0'
   title: Pizza Order API
   license:
     name: Apache 2.0
@@ -15,7 +15,11 @@ paths:
     get:
       summary: Fetches an order
       tags:
-        - order   
+        - order
+      x-kong-plugin-mocking:
+        enabled: true
+        config:
+          api_specification_filename: orders.yaml     
       responses:
         '200':
           description: Order object
